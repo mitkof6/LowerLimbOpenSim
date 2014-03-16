@@ -49,7 +49,7 @@
 </IKTaskSet>
 <marker_file>motion.trc</marker_file>
 <coordinate_file>Unassigned</coordinate_file>
-<time_range> 0.047000 12.715000</time_range>
+<time_range> 0.046000 9.469000</time_range>
 <report_errors>true</report_errors>
 <output_motion_file>IK_motion.mot</output_motion_file>
 <report_marker_locations>false</report_marker_locations>

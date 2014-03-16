@@ -4,7 +4,7 @@
 <results_directory>.\</results_directory>
 <input_directory />
 <model_file>Unassigned</model_file>
-<time_range> 0.047000 12.715000</time_range>
+<time_range> 0.046000 9.469000</time_range>
 <forces_to_exclude> Muscles</forces_to_exclude>
 <external_loads_file>Unassigned</external_loads_file>
 <coordinates_file>IK_motion.mot</coordinates_file>

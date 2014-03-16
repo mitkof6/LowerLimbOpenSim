@@ -9,12 +9,117 @@
 <model_file>Kinect_no_markers.osim</model_file>
 <marker_set_file>kinectMarkers.xml</marker_set_file>
 </GenericModelMaker>
-<!--Specifies parameters for scaling the model.-->
 <ModelScaler>
 <apply>true</apply>
-<scaling_order />
+<scaling_order> measurements</scaling_order>
 <MeasurementSet>
+<objects>
+<Measurement name="rfemur">
+<apply>true</apply>
+<MarkerPairSet>
+<objects>
+<MarkerPair>
+</MarkerPair>
+</objects>
+<groups />
+</MarkerPairSet>
+<BodyScaleSet>
+<objects>
+<BodyScale name="femur">
+<axes> X Y Z</axes>
+</BodyScale>
+</objects>
+<groups />
+</BodyScaleSet>
+</Measurement>
+<Measurement name="lfemur">
+<apply>true</apply>
+<MarkerPairSet>
+<objects>
+<MarkerPair>
+<markers> mHipL mKneeL</markers>
+</MarkerPair>
+</objects>
+<groups />
+</MarkerPairSet>
+<BodyScaleSet>
+<objects>
+<BodyScale name="lfemur">
+<axes> X Y Z</axes>
+</BodyScale>
+</objects>
+<groups />
+</BodyScaleSet>
+</Measurement>
+<Measurement name="rtibia">
+<apply>true</apply>
+<MarkerPairSet>
+<objects>
+<MarkerPair>
+<markers> mKneeR mAnkleR</markers>
+</MarkerPair>
+</objects>
+<groups />
+</MarkerPairSet>
+<BodyScaleSet>
+<objects>
+<BodyScale name="tibia">
+<axes> X Y Z</axes>
+</BodyScale>
+</objects>
+<groups />
+</BodyScaleSet>
+</Measurement>
+<Measurement name="ltibia">
+<apply>true</apply>
+<MarkerPairSet>
+<objects>
+<MarkerPair>
+<markers> mKneeL mAnkleL</markers>
+</MarkerPair>
+</objects>
+<groups />
+</MarkerPairSet>
+<BodyScaleSet>
+<objects>
+<BodyScale name="ltibia">
+<axes> X Y Z</axes>
+</BodyScale>
+</objects>
+<groups />
+</BodyScaleSet>
+</Measurement>
+<Measurement name="rfoot">
+<apply>false</apply>
+<MarkerPairSet>
+<objects>
+<MarkerPair>
+<markers> mAnkleR mToesR</markers>
+</MarkerPair>
+</objects>
+<groups />
+</MarkerPairSet>
+<BodyScaleSet>
 <objects />
+<groups />
+</BodyScaleSet>
+</Measurement>
+<Measurement name="lfoot">
+<apply>false</apply>
+<MarkerPairSet>
+<objects>
+<MarkerPair>
+<markers> mAnkleL mToesL</markers>
+</MarkerPair>
+</objects>
+<groups />
+</MarkerPairSet>
+<BodyScaleSet>
+<objects />
+<groups />
+</BodyScaleSet>
+</Measurement>
+</objects>
 <groups />
 </MeasurementSet>
 <ScaleSet>
@@ -22,7 +127,7 @@
 <groups />
 </ScaleSet>
 <marker_file>motion.trc</marker_file>
-<time_range> 0.047000 12.715000</time_range>
+<time_range> 0.046000 9.469000</time_range>
 <preserve_mass_distribution>false</preserve_mass_distribution>
 <output_model_file>Unassigned</output_model_file>
 <output_scale_file>Unassigned</output_scale_file>
@@ -72,7 +177,7 @@
 </IKTaskSet>
 <marker_file>motion.trc</marker_file>
 <coordinate_file>Unassigned</coordinate_file>
-<time_range> 0.047000 1</time_range>
+<time_range> 0.046000 1</time_range>
 <output_motion_file>Unassigned</output_motion_file>
 <output_model_file>Unassigned</output_model_file>
 <output_marker_file>Unassigned</output_marker_file>
