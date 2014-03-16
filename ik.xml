@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="30000">
+<InverseKinematicsTool>
+<results_directory>./</results_directory>
+<input_directory />
+<model_file>Unassigned</model_file>
+<constraint_weight>Inf</constraint_weight>
+<accuracy>1e-005</accuracy>
+<IKTaskSet>
+<objects>
+<IKMarkerTask name="mPelvis">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mHipR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mHipL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mKneeR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mKneeL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mAnkleR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mAnkleL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mToesR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mToesL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+</objects>
+<groups />
+</IKTaskSet>
+<marker_file>motion.trc</marker_file>
+<coordinate_file>Unassigned</coordinate_file>
+<time_range> 0.047000 12.715000</time_range>
+<report_errors>true</report_errors>
+<output_motion_file>IK_motion.mot</output_motion_file>
+<report_marker_locations>false</report_marker_locations>
+</InverseKinematicsTool>
+</OpenSimDocument>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="30000">
+<ScaleTool name="Kinect Lower Limb-scaled">
+<mass>41.128</mass>
+<height>-1</height>
+<age>-1</age>
+<notes>Unassigned</notes>
+<GenericModelMaker>
+<model_file>Kinect_no_markers.osim</model_file>
+<marker_set_file>kinectMarkers.xml</marker_set_file>
+</GenericModelMaker>
+<!--Specifies parameters for scaling the model.-->
+<ModelScaler>
+<apply>true</apply>
+<scaling_order />
+<MeasurementSet>
+<objects />
+<groups />
+</MeasurementSet>
+<ScaleSet>
+<objects />
+<groups />
+</ScaleSet>
+<marker_file>motion.trc</marker_file>
+<time_range> 0.047000 12.715000</time_range>
+<preserve_mass_distribution>false</preserve_mass_distribution>
+<output_model_file>Unassigned</output_model_file>
+<output_scale_file>Unassigned</output_scale_file>
+</ModelScaler>
+<MarkerPlacer>
+<apply>true</apply>
+<IKTaskSet>
+<objects>
+<IKMarkerTask name="mPelvis">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mHipR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mHipL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mKneeR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mKneeL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mAnkleR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mAnkleL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mToesR">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+<IKMarkerTask name="mToesL">
+<apply>true</apply>
+<weight>1</weight>
+</IKMarkerTask>
+</objects>
+<groups />
+</IKTaskSet>
+<marker_file>motion.trc</marker_file>
+<coordinate_file>Unassigned</coordinate_file>
+<time_range> 0.047000 1</time_range>
+<output_motion_file>Unassigned</output_motion_file>
+<output_model_file>Unassigned</output_model_file>
+<output_marker_file>Unassigned</output_marker_file>
+<max_marker_movement>-1</max_marker_movement>
+</MarkerPlacer>
+</ScaleTool>
+</OpenSimDocument>

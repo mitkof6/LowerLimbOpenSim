@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="30000">
+<InverseDynamicsTool name="Kinect Lower Limb">
+<results_directory>.\</results_directory>
+<input_directory />
+<model_file>Unassigned</model_file>
+<time_range> 0.047000 12.715000</time_range>
+<forces_to_exclude> Muscles</forces_to_exclude>
+<external_loads_file>Unassigned</external_loads_file>
+<coordinates_file>IK_motion.mot</coordinates_file>
+<lowpass_cutoff_frequency_for_coordinates>6</lowpass_cutoff_frequency_for_coordinates>
+<output_gen_force_file>inverse_dynamics.sto</output_gen_force_file>
+<joints_to_report_body_forces />
+<output_body_forces_file>body_forces_at_joints.sto</output_body_forces_file>
+</InverseDynamicsTool>
+</OpenSimDocument>
