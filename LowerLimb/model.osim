@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSimDocument Version="30000">
-	<Model name="Kinect Lower Limb">
+	<Model name="3D Lower Limb Model">
 		<credits>Jim Stanev</credits>
 		<publications />
 		<length_units>meters</length_units>
@@ -66,7 +66,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="pelvis_rz">
+									<Coordinate name="pelvis_tilt">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -84,7 +84,7 @@
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
 									</Coordinate>
-									<Coordinate name="pelvis_rx">
+									<Coordinate name="pelvis_list">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -102,7 +102,7 @@
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
 									</Coordinate>
-									<Coordinate name="pelvis_ry">
+									<Coordinate name="pelvis_rotation">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -184,7 +184,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>pelvis_rz</coordinates>
+									<coordinates>pelvis_tilt</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 0 1</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -196,7 +196,7 @@
 								</TransformAxis>
 								<TransformAxis name="rotation2">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>pelvis_rx</coordinates>
+									<coordinates>pelvis_list</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>1 0 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -208,7 +208,7 @@
 								</TransformAxis>
 								<TransformAxis name="rotation3">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>pelvis_ry</coordinates>
+									<coordinates>pelvis_rotation</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 1 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -327,7 +327,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="femur">
+				<Body name="femur_r">
 					<mass>9.3014</mass>
 					<mass_center> 0 -0.17 0</mass_center>
 					<inertia_xx>0.1339</inertia_xx>
@@ -338,7 +338,7 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="hip">
+						<CustomJoint name="hip_r">
 							<!--Name of the parent body to which this joint connects its owner body.-->
 							<parent_body>pelvis</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
@@ -352,7 +352,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="r_hip_flexion">
+									<Coordinate name="hip_flexion_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -370,7 +370,7 @@
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
 									</Coordinate>
-									<Coordinate name="r_hip_adduction">
+									<Coordinate name="hip_adduction_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -388,7 +388,7 @@
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
 									</Coordinate>
-									<Coordinate name="r_hip_rotation">
+									<Coordinate name="hip_rotation_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -416,7 +416,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_hip_flexion</coordinates>
+									<coordinates>hip_flexion_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 0 1</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -428,7 +428,7 @@
 								</TransformAxis>
 								<TransformAxis name="rotation2">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_hip_adduction</coordinates>
+									<coordinates>hip_adduction_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>1 0 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -440,7 +440,7 @@
 								</TransformAxis>
 								<TransformAxis name="rotation3">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_hip_rotation</coordinates>
+									<coordinates>hip_rotation_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 1 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -527,7 +527,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="tibia">
+				<Body name="tibia_r">
 					<mass>3.7075</mass>
 					<mass_center> 0 -0.1867 0</mass_center>
 					<inertia_xx>0.0504</inertia_xx>
@@ -538,9 +538,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="femoral-tibial">
+						<CustomJoint name="knee_r">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>femur</parent_body>
+							<parent_body>femur_r</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0 0 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -552,7 +552,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="r_knee_angle">
+									<Coordinate name="knee_angle_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -580,7 +580,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_knee_angle</coordinates>
+									<coordinates>knee_angle_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 0 1</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -617,7 +617,7 @@
 								<!--3 Axes for translations are listed next.-->
 								<TransformAxis name="translation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_knee_angle</coordinates>
+									<coordinates>knee_angle_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>1 0 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -630,7 +630,7 @@
 								</TransformAxis>
 								<TransformAxis name="translation2">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_knee_angle</coordinates>
+									<coordinates>knee_angle_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 1 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -709,7 +709,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="patella">
+				<Body name="patella_r">
 					<mass>0.1</mass>
 					<mass_center> 0 0 0</mass_center>
 					<inertia_xx>0.001</inertia_xx>
@@ -720,9 +720,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="tp">
+						<CustomJoint name="tp_r">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>tibia</parent_body>
+							<parent_body>tibia_r</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0 0 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -927,7 +927,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="talus">
+				<Body name="talus_r">
 					<mass>0.1</mass>
 					<mass_center> 0 0 0</mass_center>
 					<inertia_xx>0.001</inertia_xx>
@@ -938,9 +938,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="ankle">
+						<CustomJoint name="ankle_r">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>tibia</parent_body>
+							<parent_body>tibia_r</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0 -0.43 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -952,7 +952,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="r_ankle_angle">
+									<Coordinate name="ankle_angle_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -980,7 +980,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_ankle_angle</coordinates>
+									<coordinates>ankle_angle_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>-0.1045294 -0.17364901 0.97924442</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1060,7 +1060,7 @@
 							<objects>
 								<DisplayGeometry>
 									<!--Name of geometry file .vtp, .stl, .obj-->
-									<geometry_file>talus.vtp</geometry_file>
+									<geometry_file>talus_r.vtp</geometry_file>
 									<!--Color used to display the geometry when visible-->
 									<color> 1 1 1</color>
 									<!--Name of texture file .jpg, .bmp-->
@@ -1091,7 +1091,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="calcn">
+				<Body name="calcn_r">
 					<mass>1.25</mass>
 					<mass_center> 0.1 0.03 0</mass_center>
 					<inertia_xx>0.0014</inertia_xx>
@@ -1102,9 +1102,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="subtalar">
+						<CustomJoint name="subtalar_r">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>talus</parent_body>
+							<parent_body>talus_r</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>-0.04877 -0.04195 0.00792</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -1116,7 +1116,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="r_subt_angle">
+									<Coordinate name="subtalar_angle_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -1144,7 +1144,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_subt_angle</coordinates>
+									<coordinates>subtalar_angle_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0.78717961 0.60474746 -0.12094949</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1255,7 +1255,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="toes">
+				<Body name="toes_r">
 					<mass>0.2166</mass>
 					<mass_center> 0.0346 0.006 -0.0175</mass_center>
 					<inertia_xx>0.0001</inertia_xx>
@@ -1266,9 +1266,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="toe">
+						<CustomJoint name="toe_r">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>calcn</parent_body>
+							<parent_body>calcn_r</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0.1788 -0.002 0.00108</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -1280,7 +1280,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="r_mtp_angle">
+									<Coordinate name="mtp_angle_r">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -1308,7 +1308,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>r_mtp_angle</coordinates>
+									<coordinates>mtp_angle_r</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0.58082189 0 -0.81403067</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1419,7 +1419,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="lfemur">
+				<Body name="femur_l">
 					<mass>9.3014</mass>
 					<mass_center> 0 -0.17 0</mass_center>
 					<inertia_xx>0.1339</inertia_xx>
@@ -1430,7 +1430,7 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="lhip">
+						<CustomJoint name="hip_l">
 							<!--Name of the parent body to which this joint connects its owner body.-->
 							<parent_body>pelvis</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
@@ -1444,7 +1444,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="l_hip_flexion">
+									<Coordinate name="hip_flexion_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -1462,7 +1462,7 @@
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
 									</Coordinate>
-									<Coordinate name="l_hip_adduction">
+									<Coordinate name="hip_adduction_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -1480,7 +1480,7 @@
 										<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 										<prescribed>false</prescribed>
 									</Coordinate>
-									<Coordinate name="l_hip_rotation">
+									<Coordinate name="hip_rotation_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -1508,7 +1508,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_hip_flexion</coordinates>
+									<coordinates>hip_flexion_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 0 1</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1520,7 +1520,7 @@
 								</TransformAxis>
 								<TransformAxis name="rotation2">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_hip_adduction</coordinates>
+									<coordinates>hip_adduction_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>-1 0 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1532,7 +1532,7 @@
 								</TransformAxis>
 								<TransformAxis name="rotation3">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_hip_rotation</coordinates>
+									<coordinates>hip_rotation_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 -1 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1619,7 +1619,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="ltibia">
+				<Body name="tibia_l">
 					<mass>3.7075</mass>
 					<mass_center> 0 -0.1867 0</mass_center>
 					<inertia_xx>0.0504</inertia_xx>
@@ -1630,9 +1630,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="lfemoral-tibial">
+						<CustomJoint name="knee_l">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>lfemur</parent_body>
+							<parent_body>femur_l</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0 0 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -1644,7 +1644,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="l_knee_angle">
+									<Coordinate name="knee_angle_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -1672,7 +1672,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_knee_angle</coordinates>
+									<coordinates>knee_angle_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 0 1</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1709,7 +1709,7 @@
 								<!--3 Axes for translations are listed next.-->
 								<TransformAxis name="translation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_knee_angle</coordinates>
+									<coordinates>knee_angle_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>1 0 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1722,7 +1722,7 @@
 								</TransformAxis>
 								<TransformAxis name="translation2">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_knee_angle</coordinates>
+									<coordinates>knee_angle_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0 1 0</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -1801,7 +1801,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="lpatella">
+				<Body name="patella_l">
 					<mass>0.1</mass>
 					<mass_center> 0 0 0</mass_center>
 					<inertia_xx>0.001</inertia_xx>
@@ -1812,9 +1812,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="ltp">
+						<CustomJoint name="tp_l">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>ltibia</parent_body>
+							<parent_body>tibia_l</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0 0 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -2019,7 +2019,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="ltalus">
+				<Body name="talus_l">
 					<mass>0.1</mass>
 					<mass_center> 0 0 0</mass_center>
 					<inertia_xx>0.001</inertia_xx>
@@ -2030,9 +2030,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="lankle">
+						<CustomJoint name="ankle_l">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>ltibia</parent_body>
+							<parent_body>tibia_l</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0 -0.43 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -2044,7 +2044,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="l_ankle_angle">
+									<Coordinate name="ankle_angle_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -2072,7 +2072,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_ankle_angle</coordinates>
+									<coordinates>ankle_angle_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>0.1045294 0.17364901 0.97924442</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -2183,7 +2183,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="lcalcn">
+				<Body name="calcn_l">
 					<mass>1.25</mass>
 					<mass_center> 0.1 0.03 0</mass_center>
 					<inertia_xx>0.0014</inertia_xx>
@@ -2194,9 +2194,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="lsubtalar">
+						<CustomJoint name="subtalar_l">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>ltalus</parent_body>
+							<parent_body>talus_l</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>-0.04877 -0.04195 -0.00792</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -2208,7 +2208,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="l_subt_angle">
+									<Coordinate name="subtalar_angle_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -2236,7 +2236,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_subt_angle</coordinates>
+									<coordinates>subtalar_angle_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>-0.78717961 -0.60474746 -0.12094949</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -2347,7 +2347,7 @@
 						<groups />
 					</WrapObjectSet>
 				</Body>
-				<Body name="ltoes">
+				<Body name="toes_l">
 					<mass>0.2166</mass>
 					<mass_center> 0.0346 0.006 0.0175</mass_center>
 					<inertia_xx>0.0001</inertia_xx>
@@ -2358,9 +2358,9 @@
 					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
-						<CustomJoint name="ltoe">
+						<CustomJoint name="toe_l">
 							<!--Name of the parent body to which this joint connects its owner body.-->
-							<parent_body>lcalcn</parent_body>
+							<parent_body>calcn_l</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
 							<location_in_parent>0.1788 -0.002 -0.00108</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
@@ -2372,7 +2372,7 @@
 							<!--Set holding the generalized coordinates (q's) that parmeterize this joint.-->
 							<CoordinateSet>
 								<objects>
-									<Coordinate name="l_mtp_angle">
+									<Coordinate name="mtp_angle_l">
 										<!--Coordinate can describe rotational, translational, or coupled motion. Defaults to rotational.-->
 										<motion_type>rotational</motion_type>
 										<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
@@ -2400,7 +2400,7 @@
 								<!--3 Axes for rotations are listed first.-->
 								<TransformAxis name="rotation1">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-									<coordinates>l_mtp_angle</coordinates>
+									<coordinates>mtp_angle_l</coordinates>
 									<!--Rotation or translation axis for the transform.-->
 									<axis>-0.58082189 0 -0.81403067</axis>
 									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
@@ -2528,7 +2528,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>r_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_r</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>tp_r3</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2545,7 +2545,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>r_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_r</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>tp_tx</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2562,7 +2562,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>r_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_r</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>tp_ty</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2579,7 +2579,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>r_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_r</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>tp_tz</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2596,7 +2596,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>l_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_l</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>ltp_r3</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2613,7 +2613,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>l_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_l</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>ltp_tx</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2630,7 +2630,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>l_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_l</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>ltp_ty</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2647,7 +2647,7 @@
 						</SimmSpline>
 					</coupled_coordinates_function>
 					<!--List of names of the independent coordinates (restricted to 1 for now).-->
-					<independent_coordinate_names>l_knee_angle</independent_coordinate_names>
+					<independent_coordinate_names>knee_angle_l</independent_coordinate_names>
 					<!--Name of the dependent coordinate.-->
 					<dependent_coordinate_name>ltp_tz</dependent_coordinate_name>
 					<!--Scale factor for the function.-->
@@ -2659,7 +2659,7 @@
 		<!--Forces in the model.-->
 		<ForceSet>
 			<objects>
-				<Schutte1993Muscle_Deprecated name="GMED1">
+				<Millard2012EquilibriumMuscle name="GMED1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -2677,7 +2677,7 @@
 								</PathPoint>
 								<PathPoint name="GMED1-P2">
 									<location> -0.0218 -0.0117 0.0555</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2739,8 +2739,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMED2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMED2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -2758,7 +2758,7 @@
 								</PathPoint>
 								<PathPoint name="GMED2-P2">
 									<location> -0.0258 -0.0058 0.0527</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2820,8 +2820,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMED3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMED3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -2839,7 +2839,7 @@
 								</PathPoint>
 								<PathPoint name="GMED3-P2">
 									<location> -0.0309 -0.0047 0.0518</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2901,8 +2901,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMIN1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMIN1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -2920,7 +2920,7 @@
 								</PathPoint>
 								<PathPoint name="GMIN1-P2">
 									<location> -0.0072 -0.0104 0.056</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2982,8 +2982,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMIN2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMIN2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3001,7 +3001,7 @@
 								</PathPoint>
 								<PathPoint name="GMIN2-P2">
 									<location> -0.0096 -0.0104 0.056</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3063,8 +3063,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMIN3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMIN3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3082,7 +3082,7 @@
 								</PathPoint>
 								<PathPoint name="GMIN3-P2">
 									<location> -0.0135 -0.0083 0.055</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3144,8 +3144,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="SEMIMEM">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="SEMIMEM">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3163,7 +3163,7 @@
 								</PathPoint>
 								<PathPoint name="SEMIMEM-P2">
 									<location> -0.0243 -0.0536 -0.0194</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3225,8 +3225,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="SEMITEN">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="SEMITEN">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3244,15 +3244,15 @@
 								</PathPoint>
 								<PathPoint name="SEMITEN-P2">
 									<location> -0.0314 -0.0545 -0.0146</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="SEMITEN-P3">
 									<location> -0.0113 -0.0746 -0.0245</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="SEMITEN-P4">
 									<location> 0.0027 -0.0956 -0.0193</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3314,8 +3314,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="BIFEMLH">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="BIFEMLH">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3333,7 +3333,7 @@
 								</PathPoint>
 								<PathPoint name="BIFEMLH-P2">
 									<location> -0.0081 -0.0729 0.0423</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3395,8 +3395,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="HAMSTRINGS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="HAMSTRINGS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3414,7 +3414,7 @@
 								</PathPoint>
 								<PathPoint name="HAMSTRINGS-P2">
 									<location> -0.0081 -0.0729 0.0423</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3476,8 +3476,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="BIFEMSH">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="BIFEMSH">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3491,11 +3491,11 @@
 							<objects>
 								<PathPoint name="BIFEMSH-P1">
 									<location> 0.005 -0.2111 0.0234</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="BIFEMSH-P2">
 									<location> -0.0101 -0.0725 0.0406</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3557,8 +3557,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="SAR">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="SAR">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3576,19 +3576,19 @@
 								</PathPoint>
 								<PathPoint name="SAR-P2">
 									<location> -0.003 -0.3568 -0.0421</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="SAR-P3">
 									<location> -0.0056 -0.0419 -0.0399</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="SAR-P4">
 									<location> 0.006 -0.0589 -0.0383</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="SAR-P5">
 									<location> 0.0243 -0.084 -0.0252</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3650,8 +3650,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="RF">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="RF">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3669,13 +3669,13 @@
 								</PathPoint>
 								<ConditionalPathPoint name="RF-P2">
 									<location> 0.0334 -0.403 0.0019</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -2.61799 -1.45997</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="RF-P3">
 									<location> 0.0121 0.0437 -0.001</location>
-									<body>patella</body>
+									<body>patella_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3737,8 +3737,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="ADDLONG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="ADDLONG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3756,7 +3756,7 @@
 								</PathPoint>
 								<PathPoint name="ADDLONG-P2">
 									<location> 0.005 -0.2111 0.0234</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3818,8 +3818,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="ADDBREV">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="ADDBREV">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3837,7 +3837,7 @@
 								</PathPoint>
 								<PathPoint name="ADDBREV-P2">
 									<location> 0.0009 -0.1196 0.0294</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3899,8 +3899,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="AMAG1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="AMAG1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3918,7 +3918,7 @@
 								</PathPoint>
 								<PathPoint name="AMAG1-P2">
 									<location> -0.0045 -0.1211 0.0339</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3980,8 +3980,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="AMAG2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="AMAG2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -3999,7 +3999,7 @@
 								</PathPoint>
 								<PathPoint name="AMAG2-P2">
 									<location> 0.0054 -0.2285 0.0227</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4061,8 +4061,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="AMAG3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="AMAG3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4080,7 +4080,7 @@
 								</PathPoint>
 								<PathPoint name="AMAG3-P2">
 									<location> 0.007 -0.3837 -0.0266</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4142,8 +4142,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="TFL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="TFL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4161,15 +4161,15 @@
 								</PathPoint>
 								<PathPoint name="TFL-P2">
 									<location> 0.0294 -0.0995 0.0597</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="TFL-P3">
 									<location> 0.0054 -0.4049 0.0357</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="TFL-P4">
 									<location> 0.006 -0.0487 0.0297</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4231,8 +4231,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="PECT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="PECT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4250,7 +4250,7 @@
 								</PathPoint>
 								<PathPoint name="PECT-P2">
 									<location> -0.0122 -0.0822 0.0253</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4312,8 +4312,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GRA">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GRA">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4331,11 +4331,11 @@
 								</PathPoint>
 								<PathPoint name="GRA-P2">
 									<location> -0.0154 -0.0475 -0.0358</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="GRA-P3">
 									<location> 0.006 -0.0836 -0.0228</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4397,8 +4397,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMAX1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMAX1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4420,11 +4420,11 @@
 								</PathPoint>
 								<PathPoint name="GMAX1-P3">
 									<location> -0.0457 -0.0248 0.0392</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="GMAX1-P4">
 									<location> -0.0277 -0.0566 0.047</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4486,8 +4486,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMAX2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMAX2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4509,11 +4509,11 @@
 								</PathPoint>
 								<PathPoint name="GMAX2-P3">
 									<location> -0.0426 -0.053 0.0293</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="GMAX2-P4">
 									<location> -0.0156 -0.1016 0.0419</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4575,8 +4575,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GMAX3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GMAX3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4598,11 +4598,11 @@
 								</PathPoint>
 								<PathPoint name="GMAX3-P3">
 									<location> -0.0299 -0.1041 0.0135</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="GMAX3-P4">
 									<location> -0.006 -0.1419 0.0411</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4664,8 +4664,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="ILIACUS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="ILIACUS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4687,11 +4687,11 @@
 								</PathPoint>
 								<PathPoint name="ILIACUS-P3">
 									<location> 0.0017 -0.0543 0.0057</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="ILIACUS-P4">
 									<location> -0.0193 -0.0621 0.0129</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4753,8 +4753,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="PSOAS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="PSOAS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4776,11 +4776,11 @@
 								</PathPoint>
 								<PathPoint name="PSOAS-P3">
 									<location> 0.0016 -0.0507 0.0038</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="PSOAS-P4">
 									<location> -0.0188 -0.0597 0.0104</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4842,8 +4842,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="QUADFEM">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="QUADFEM">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4861,7 +4861,7 @@
 								</PathPoint>
 								<PathPoint name="QUADFEM-P2">
 									<location> -0.0381 -0.0359 0.0366</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4923,8 +4923,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="GLEM">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="GLEM">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -4942,7 +4942,7 @@
 								</PathPoint>
 								<PathPoint name="GLEM-P2">
 									<location> -0.0142 -0.0033 0.0443</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5004,8 +5004,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="PERI">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="PERI">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5027,7 +5027,7 @@
 								</PathPoint>
 								<PathPoint name="PERI-P3">
 									<location> -0.0148 -0.0036 0.0437</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5089,8 +5089,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="VASMED">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="VASMED">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5104,27 +5104,27 @@
 							<objects>
 								<PathPoint name="VASMED-P1">
 									<location> 0.014 -0.2099 0.0188</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="VASMED-P2">
 									<location> 0.0356 -0.2769 0.0009</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<ConditionalPathPoint name="VASMED-P3">
 									<location> 0.037 -0.4048 -0.0125</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -2.61799 -1.20986</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<ConditionalPathPoint name="VASMED-P4">
 									<location> 0.0274 -0.4255 -0.0131</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -2.61799 -1.78006</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="VASMED-P5">
 									<location> 0.0063 0.0445 -0.017</location>
-									<body>patella</body>
+									<body>patella_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5186,8 +5186,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="VASINT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="VASINT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5201,21 +5201,21 @@
 							<objects>
 								<PathPoint name="VASINT-P1">
 									<location> 0.029 -0.1924 0.031</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="VASINT-P2">
 									<location> 0.0335 -0.2084 0.0285</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<ConditionalPathPoint name="VASINT-P3">
 									<location> 0.0343 -0.403 0.0055</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -2.61799 -1.42</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="VASINT-P4">
 									<location> 0.0058 0.048 -0.0006</location>
-									<body>patella</body>
+									<body>patella_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5277,8 +5277,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="VASLAT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="VASLAT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5292,27 +5292,27 @@
 							<objects>
 								<PathPoint name="VASLAT-P1">
 									<location> 0.0048 -0.1854 0.0349</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<PathPoint name="VASLAT-P2">
 									<location> 0.0269 -0.2591 0.0409</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<ConditionalPathPoint name="VASLAT-P3">
 									<location> 0.0361 -0.403 0.0205</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -2.61799 -1.20986</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<ConditionalPathPoint name="VASLAT-P4">
 									<location> 0.0253 -0.4243 0.0184</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -2.61799 -1.91986</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="VASLAT-P5">
 									<location> 0.0103 0.0423 0.0141</location>
-									<body>patella</body>
+									<body>patella_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5374,8 +5374,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="MEDGAS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="MEDGAS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5389,21 +5389,21 @@
 							<objects>
 								<PathPoint name="MEDGAS-P1">
 									<location> -0.0127 -0.3929 -0.0235</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<ConditionalPathPoint name="MEDGAS-P2">
 									<location> -0.0239 -0.4022 -0.0258</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -0.770039 0.100007</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="MEDGAS-P3">
 									<location> -0.0217 -0.0487 -0.0295</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="MEDGAS-P4">
 									<location> 0.0044 0.031 -0.0053</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5465,8 +5465,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LATGAS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LATGAS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5480,21 +5480,21 @@
 							<objects>
 								<PathPoint name="LATGAS-P1">
 									<location> -0.0155 -0.3946 0.0272</location>
-									<body>femur</body>
+									<body>femur_r</body>
 								</PathPoint>
 								<ConditionalPathPoint name="LATGAS-P2">
 									<location> -0.0254 -0.4018 0.0274</location>
-									<body>femur</body>
+									<body>femur_r</body>
 									<range> -0.770039 0.100007</range>
-									<coordinate>r_knee_angle</coordinate>
+									<coordinate>knee_angle_r</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="LATGAS-P3">
 									<location> -0.0242 -0.0481 0.0235</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="LATGAS-P4">
 									<location> 0.0044 0.031 -0.0053</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5556,8 +5556,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="SOL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="SOL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5571,11 +5571,11 @@
 							<objects>
 								<PathPoint name="SOL-P1">
 									<location> -0.0024 -0.1533 0.0071</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="SOL-P2">
 									<location> 0.0044 0.031 -0.0053</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5637,8 +5637,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="SOLSTIF">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="SOLSTIF">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5652,11 +5652,11 @@
 							<objects>
 								<PathPoint name="SOLSTIF-P1">
 									<location> -0.0024 -0.1533 0.0071</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="SOLSTIF-P2">
 									<location> 0.0044 0.031 -0.0053</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5718,8 +5718,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="TIBPOST">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="TIBPOST">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5733,19 +5733,19 @@
 							<objects>
 								<PathPoint name="TIBPOST-P1">
 									<location> -0.0094 -0.1348 0.0019</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TIBPOST-P2">
 									<location> -0.0144 -0.4051 -0.0229</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TIBPOST-P3">
 									<location> 0.0417 0.0334 -0.0286</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="TIBPOST-P4">
 									<location> 0.0772 0.0159 -0.0281</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5807,8 +5807,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="FLEXDIG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="FLEXDIG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5822,35 +5822,35 @@
 							<objects>
 								<PathPoint name="FLEXDIG-P1">
 									<location> -0.0083 -0.2046 -0.0018</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P2">
 									<location> -0.0154 -0.4051 -0.0196</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P3">
 									<location> 0.0436 0.0315 -0.028</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P4">
 									<location> 0.0708 0.0176 -0.0263</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P5">
 									<location> 0.1658 -0.0081 0.0116</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P6">
 									<location> -0.0019 -0.0078 0.0147</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P7">
 									<location> 0.0285 -0.0071 0.0215</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXDIG-P8">
 									<location> 0.0441 -0.006 0.0242</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -5912,8 +5912,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="FLEXHAL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="FLEXHAL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -5927,31 +5927,31 @@
 							<objects>
 								<PathPoint name="FLEXHAL-P1">
 									<location> -0.0079 -0.2334 0.0244</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXHAL-P2">
 									<location> -0.0186 -0.4079 -0.0174</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXHAL-P3">
 									<location> 0.0374 0.0276 -0.0241</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXHAL-P4">
 									<location> 0.1038 0.0068 -0.0256</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXHAL-P5">
 									<location> 0.1726 -0.0053 -0.0269</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXHAL-P6">
 									<location> 0.0155 -0.0064 -0.0265</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 								<PathPoint name="FLEXHAL-P7">
 									<location> 0.0562 -0.0102 -0.0181</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6013,8 +6013,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="TIBANT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="TIBANT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6028,15 +6028,15 @@
 							<objects>
 								<PathPoint name="TIBANT-P1">
 									<location> 0.0179 -0.1624 0.0115</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TIBANT-P2">
 									<location> 0.0329 -0.3951 -0.0177</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TIBANT-P3">
 									<location> 0.1166 0.0178 -0.0305</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6098,8 +6098,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="PERBREV">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="PERBREV">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6113,23 +6113,23 @@
 							<objects>
 								<PathPoint name="PERBREV-P1">
 									<location> -0.007 -0.2646 0.0325</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERBREV-P2">
 									<location> -0.0198 -0.4184 0.0283</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERBREV-P3">
 									<location> -0.0144 -0.4295 0.0289</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERBREV-P4">
 									<location> 0.0471 0.027 0.0233</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="PERBREV-P5">
 									<location> 0.0677 0.0219 0.0343</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6191,8 +6191,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="PERLONG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="PERLONG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6206,31 +6206,31 @@
 							<objects>
 								<PathPoint name="PERLONG-P1">
 									<location> 0.0005 -0.1568 0.0362</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERLONG-P2">
 									<location> -0.0207 -0.4205 0.0286</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERLONG-P3">
 									<location> -0.0162 -0.4319 0.0289</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERLONG-P4">
 									<location> 0.0438 0.023 0.0221</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="PERLONG-P5">
 									<location> 0.0681 0.0106 0.0284</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="PERLONG-P6">
 									<location> 0.0852 0.0069 0.0118</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="PERLONG-P7">
 									<location> 0.1203 0.0085 -0.0184</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6292,8 +6292,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="PERTERT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="PERTERT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6307,15 +6307,15 @@
 							<objects>
 								<PathPoint name="PERTERT-P1">
 									<location> 0.001 -0.2804 0.0231</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERTERT-P2">
 									<location> 0.0229 -0.4069 0.0159</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="PERTERT-P3">
 									<location> 0.0857 0.0228 0.0299</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6377,8 +6377,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="EXTDIG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="EXTDIG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6392,27 +6392,27 @@
 							<objects>
 								<PathPoint name="EXTDIG-P1">
 									<location> 0.0032 -0.1381 0.0276</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="EXTDIG-P2">
 									<location> 0.0289 -0.4007 0.0072</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="EXTDIG-P3">
 									<location> 0.0922 0.0388 -0.0001</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="EXTDIG-P4">
 									<location> 0.1616 0.0055 0.013</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="EXTDIG-P5">
 									<location> 0.0003 0.0047 0.0153</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 								<PathPoint name="EXTDIG-P6">
 									<location> 0.0443 -0.0004 0.025</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6474,8 +6474,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="EXTHAL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="EXTHAL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6489,31 +6489,31 @@
 							<objects>
 								<PathPoint name="EXTHAL-P1">
 									<location> 0.0012 -0.1767 0.0228</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="EXTHAL-P2">
 									<location> 0.0326 -0.3985 -0.0085</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="EXTHAL-P3">
 									<location> 0.097 0.0389 -0.0211</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="EXTHAL-P4">
 									<location> 0.1293 0.0309 -0.0257</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="EXTHAL-P5">
 									<location> 0.1734 0.0139 -0.028</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="EXTHAL-P6">
 									<location> 0.0298 0.0041 -0.0245</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 								<PathPoint name="EXTHAL-P7">
 									<location> 0.0563 0.0034 -0.0186</location>
-									<body>toes</body>
+									<body>toes_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6575,8 +6575,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LIGPAT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LIGPAT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6590,11 +6590,11 @@
 							<objects>
 								<PathPoint name="LIGPAT-P1">
 									<location> 0.039 -0.0822 0</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="LIGPAT-P2">
 									<location> 0.0021 0.0015 0.0001</location>
-									<body>patella</body>
+									<body>patella_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6656,8 +6656,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="TPOST2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="TPOST2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6671,23 +6671,23 @@
 							<objects>
 								<PathPoint name="TPOST2-P1">
 									<location> -0.0094 -0.1348 0.0019</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TPOST2-P2">
 									<location> 0.0063 -0.3505 0.0146</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TPOST2-P3">
 									<location> 0.0165 -0.3904 0.0176</location>
-									<body>tibia</body>
+									<body>tibia_r</body>
 								</PathPoint>
 								<PathPoint name="TPOST2-P4">
 									<location> 0.0912 0.0463 0.0086</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 								<PathPoint name="TPOST2-P5">
 									<location> 0.105 0.0325 0.0093</location>
-									<body>calcn</body>
+									<body>calcn_r</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6749,8 +6749,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMED1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMED1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6768,7 +6768,7 @@
 								</PathPoint>
 								<PathPoint name="LGMED1-P2">
 									<location> -0.0218 -0.0117 -0.0555</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6830,8 +6830,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMED2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMED2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6849,7 +6849,7 @@
 								</PathPoint>
 								<PathPoint name="LGMED2-P2">
 									<location> -0.0258 -0.0058 -0.0527</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6911,8 +6911,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMED3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMED3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -6930,7 +6930,7 @@
 								</PathPoint>
 								<PathPoint name="LGMED3-P2">
 									<location> -0.0309 -0.0047 -0.0518</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -6992,8 +6992,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMIN1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMIN1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7011,7 +7011,7 @@
 								</PathPoint>
 								<PathPoint name="LGMIN1-P2">
 									<location> -0.0072 -0.0104 -0.056</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7073,8 +7073,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMIN2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMIN2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7092,7 +7092,7 @@
 								</PathPoint>
 								<PathPoint name="LGMIN2-P2">
 									<location> -0.0096 -0.0104 -0.056</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7154,8 +7154,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMIN3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMIN3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7173,7 +7173,7 @@
 								</PathPoint>
 								<PathPoint name="LGMIN3-P2">
 									<location> -0.0135 -0.0083 -0.055</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7235,8 +7235,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LSEMIMEM">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LSEMIMEM">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7254,7 +7254,7 @@
 								</PathPoint>
 								<PathPoint name="LSEMIMEM-P2">
 									<location> -0.0243 -0.0536 0.0194</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7316,8 +7316,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LSEMITEN">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LSEMITEN">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7335,15 +7335,15 @@
 								</PathPoint>
 								<PathPoint name="LSEMITEN-P2">
 									<location> -0.0314 -0.0545 0.0146</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LSEMITEN-P3">
 									<location> -0.0113 -0.0746 0.0245</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LSEMITEN-P4">
 									<location> 0.0027 -0.0956 0.0193</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7405,8 +7405,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LBIFEMLH">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LBIFEMLH">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7424,7 +7424,7 @@
 								</PathPoint>
 								<PathPoint name="LBIFEMLH-P2">
 									<location> -0.0081 -0.0729 -0.0423</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7486,8 +7486,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LBIFEMSH">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LBIFEMSH">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7501,11 +7501,11 @@
 							<objects>
 								<PathPoint name="LBIFEMSH-P1">
 									<location> 0.005 -0.2111 -0.0234</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LBIFEMSH-P2">
 									<location> -0.0101 -0.0725 -0.0406</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7567,8 +7567,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LSAR">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LSAR">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7586,19 +7586,19 @@
 								</PathPoint>
 								<PathPoint name="LSAR-P2">
 									<location> -0.003 -0.3568 0.0421</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LSAR-P3">
 									<location> -0.0056 -0.0419 0.0399</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LSAR-P4">
 									<location> 0.006 -0.0589 0.0383</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LSAR-P5">
 									<location> 0.0243 -0.084 0.0252</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7660,8 +7660,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LRF">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LRF">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7679,13 +7679,13 @@
 								</PathPoint>
 								<ConditionalPathPoint name="LRF-P2">
 									<location> 0.0334 -0.403 -0.0019</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -2.61799 -1.45997</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="LRF-P3">
 									<location> 0.0121 0.0437 0.001</location>
-									<body>lpatella</body>
+									<body>patella_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7747,8 +7747,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LADDLONG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LADDLONG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7766,7 +7766,7 @@
 								</PathPoint>
 								<PathPoint name="LADDLONG-P2">
 									<location> 0.005 -0.2111 -0.0234</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7828,8 +7828,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LADDBREV">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LADDBREV">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7847,7 +7847,7 @@
 								</PathPoint>
 								<PathPoint name="LADDBREV-P2">
 									<location> 0.0009 -0.1196 -0.0294</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7909,8 +7909,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LAMAG1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LAMAG1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -7928,7 +7928,7 @@
 								</PathPoint>
 								<PathPoint name="LAMAG1-P2">
 									<location> -0.0045 -0.1211 -0.0339</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -7990,8 +7990,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LAMAG2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LAMAG2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8009,7 +8009,7 @@
 								</PathPoint>
 								<PathPoint name="LAMAG2-P2">
 									<location> 0.0054 -0.2285 -0.0227</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8071,8 +8071,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LAMAG3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LAMAG3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8090,7 +8090,7 @@
 								</PathPoint>
 								<PathPoint name="LAMAG3-P2">
 									<location> 0.007 -0.3837 0.0266</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8152,8 +8152,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LTFL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LTFL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8171,15 +8171,15 @@
 								</PathPoint>
 								<PathPoint name="LTFL-P2">
 									<location> 0.0294 -0.0995 -0.0597</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LTFL-P3">
 									<location> 0.0054 -0.4049 -0.0357</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LTFL-P4">
 									<location> 0.006 -0.0487 -0.0297</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8241,8 +8241,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LPECT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LPECT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8260,7 +8260,7 @@
 								</PathPoint>
 								<PathPoint name="LPECT-P2">
 									<location> -0.0122 -0.0822 -0.0253</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8322,8 +8322,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGRA">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGRA">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8341,11 +8341,11 @@
 								</PathPoint>
 								<PathPoint name="LGRA-P2">
 									<location> -0.0154 -0.0475 0.0358</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LGRA-P3">
 									<location> 0.006 -0.0836 0.0228</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8407,8 +8407,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMAX1">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMAX1">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8430,11 +8430,11 @@
 								</PathPoint>
 								<PathPoint name="LGMAX1-P3">
 									<location> -0.0457 -0.0248 -0.0392</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LGMAX1-P4">
 									<location> -0.0277 -0.0566 -0.047</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8496,8 +8496,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMAX2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMAX2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8519,11 +8519,11 @@
 								</PathPoint>
 								<PathPoint name="LGMAX2-P3">
 									<location> -0.0426 -0.053 -0.0293</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LGMAX2-P4">
 									<location> -0.0156 -0.1016 -0.0419</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8585,8 +8585,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGMAX3">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGMAX3">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8608,11 +8608,11 @@
 								</PathPoint>
 								<PathPoint name="LGMAX3-P3">
 									<location> -0.0299 -0.1041 -0.0135</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LGMAX3-P4">
 									<location> -0.006 -0.1419 -0.0411</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8674,8 +8674,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LILIACUS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LILIACUS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8697,11 +8697,11 @@
 								</PathPoint>
 								<PathPoint name="LILIACUS-P3">
 									<location> 0.0017 -0.0543 -0.0057</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LILIACUS-P4">
 									<location> -0.0193 -0.0621 -0.0129</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8763,8 +8763,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LPSOAS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LPSOAS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8786,11 +8786,11 @@
 								</PathPoint>
 								<PathPoint name="LPSOAS-P3">
 									<location> 0.0016 -0.0507 -0.0038</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LPSOAS-P4">
 									<location> -0.0188 -0.0597 -0.0104</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8852,8 +8852,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LQUADFEM">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LQUADFEM">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8871,7 +8871,7 @@
 								</PathPoint>
 								<PathPoint name="LQUADFEM-P2">
 									<location> -0.0381 -0.0359 -0.0366</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -8933,8 +8933,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LGLEM">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LGLEM">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -8952,7 +8952,7 @@
 								</PathPoint>
 								<PathPoint name="LGLEM-P2">
 									<location> -0.0142 -0.0033 -0.0443</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9014,8 +9014,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LPERI">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LPERI">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9037,7 +9037,7 @@
 								</PathPoint>
 								<PathPoint name="LPERI-P3">
 									<location> -0.0148 -0.0036 -0.0437</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9099,8 +9099,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="lVASMED">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="lVASMED">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9114,27 +9114,27 @@
 							<objects>
 								<PathPoint name="lVASMED-P1">
 									<location> 0.014 -0.2099 -0.0188</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="lVASMED-P2">
 									<location> 0.0356 -0.2769 -0.0009</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<ConditionalPathPoint name="lVASMED-P3">
 									<location> 0.037 -0.4048 0.0125</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -2.61799 -1.20986</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<ConditionalPathPoint name="lVASMED-P4">
 									<location> 0.0274 -0.4255 0.0131</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -2.61799 -1.78006</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="lVASMED-P5">
 									<location> 0.0063 0.0445 0.017</location>
-									<body>lpatella</body>
+									<body>patella_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9196,8 +9196,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LVASINT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LVASINT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9211,21 +9211,21 @@
 							<objects>
 								<PathPoint name="LVASINT-P1">
 									<location> 0.029 -0.1924 -0.031</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LVASINT-P2">
 									<location> 0.0335 -0.2084 -0.0285</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<ConditionalPathPoint name="LVASINT-P3">
 									<location> 0.0343 -0.403 -0.0055</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -2.61799 -1.42</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="LVASINT-P4">
 									<location> 0.0058 0.048 0.0006</location>
-									<body>lpatella</body>
+									<body>patella_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9287,8 +9287,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LVASLAT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LVASLAT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9302,27 +9302,27 @@
 							<objects>
 								<PathPoint name="LVASLAT-P1">
 									<location> 0.0048 -0.1854 -0.0349</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<PathPoint name="LVASLAT-P2">
 									<location> 0.0269 -0.2591 -0.0409</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<ConditionalPathPoint name="LVASLAT-P3">
 									<location> 0.0361 -0.403 -0.0205</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -2.61799 -1.20986</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<ConditionalPathPoint name="LVASLAT-P4">
 									<location> 0.0253 -0.4243 -0.0184</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -2.61799 -1.91986</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="LVASLAT-P5">
 									<location> 0.0103 0.0423 -0.0141</location>
-									<body>lpatella</body>
+									<body>patella_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9384,8 +9384,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LMEDGAS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LMEDGAS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9399,21 +9399,21 @@
 							<objects>
 								<PathPoint name="LMEDGAS-P1">
 									<location> -0.0127 -0.3929 0.0235</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<ConditionalPathPoint name="LMEDGAS-P2">
 									<location> -0.0239 -0.4022 0.0258</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -0.770039 0.100007</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="LMEDGAS-P3">
 									<location> -0.0217 -0.0487 0.0295</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LMEDGAS-P4">
 									<location> 0.0044 0.031 0.0053</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9475,8 +9475,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LLATGAS">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LLATGAS">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9490,21 +9490,21 @@
 							<objects>
 								<PathPoint name="LLATGAS-P1">
 									<location> -0.0155 -0.3946 -0.0272</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 								</PathPoint>
 								<ConditionalPathPoint name="LLATGAS-P2">
 									<location> -0.0254 -0.4018 -0.0274</location>
-									<body>lfemur</body>
+									<body>femur_l</body>
 									<range> -0.770039 0.100007</range>
-									<coordinate>l_knee_angle</coordinate>
+									<coordinate>knee_angle_l</coordinate>
 								</ConditionalPathPoint>
 								<PathPoint name="LLATGAS-P3">
 									<location> -0.0242 -0.0481 -0.0235</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LLATGAS-P4">
 									<location> 0.0044 0.031 0.0053</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9566,8 +9566,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LSOL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LSOL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9581,11 +9581,11 @@
 							<objects>
 								<PathPoint name="LSOL-P1">
 									<location> -0.0024 -0.1533 -0.0071</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LSOL-P2">
 									<location> 0.0044 0.031 0.0053</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9647,8 +9647,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LSOLSTIF">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LSOLSTIF">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9662,11 +9662,11 @@
 							<objects>
 								<PathPoint name="LSOLSTIF-P1">
 									<location> -0.0024 -0.1533 -0.0071</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LSOLSTIF-P2">
 									<location> 0.0044 0.031 0.0053</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9728,8 +9728,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LTIBPOST">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LTIBPOST">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9743,19 +9743,19 @@
 							<objects>
 								<PathPoint name="LTIBPOST-P1">
 									<location> -0.0094 -0.1348 -0.0019</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTIBPOST-P2">
 									<location> -0.0144 -0.4051 0.0229</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTIBPOST-P3">
 									<location> 0.0417 0.0334 0.0286</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LTIBPOST-P4">
 									<location> 0.0772 0.0159 0.0281</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9817,8 +9817,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LFLEXDIG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LFLEXDIG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9832,35 +9832,35 @@
 							<objects>
 								<PathPoint name="LFLEXDIG-P1">
 									<location> -0.0083 -0.2046 0.0018</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P2">
 									<location> -0.0154 -0.4051 0.0196</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P3">
 									<location> 0.0436 0.0315 0.028</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P4">
 									<location> 0.0708 0.0176 0.0263</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P5">
 									<location> 0.1658 -0.0081 -0.0116</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P6">
 									<location> -0.0019 -0.0078 -0.0147</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P7">
 									<location> 0.0285 -0.0071 -0.0215</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXDIG-P8">
 									<location> 0.0441 -0.006 -0.0242</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -9922,8 +9922,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LFLEXHAL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LFLEXHAL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -9937,31 +9937,31 @@
 							<objects>
 								<PathPoint name="LFLEXHAL-P1">
 									<location> -0.0079 -0.2334 -0.0244</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXHAL-P2">
 									<location> -0.0186 -0.4079 0.0174</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXHAL-P3">
 									<location> 0.0374 0.0276 0.0241</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXHAL-P4">
 									<location> 0.1038 0.0068 0.0256</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXHAL-P5">
 									<location> 0.1726 -0.0053 0.0269</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXHAL-P6">
 									<location> 0.0155 -0.0064 0.0265</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 								<PathPoint name="LFLEXHAL-P7">
 									<location> 0.0562 -0.0102 0.0181</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10023,8 +10023,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LTIBANT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LTIBANT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10038,15 +10038,15 @@
 							<objects>
 								<PathPoint name="LTIBANT-P1">
 									<location> 0.0179 -0.1624 -0.0115</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTIBANT-P2">
 									<location> 0.0329 -0.3951 0.0177</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTIBANT-P3">
 									<location> 0.1166 0.0178 0.0305</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10108,8 +10108,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LPERBREV">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LPERBREV">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10123,23 +10123,23 @@
 							<objects>
 								<PathPoint name="LPERBREV-P1">
 									<location> -0.007 -0.2646 -0.0325</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERBREV-P2">
 									<location> -0.0198 -0.4184 -0.0283</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERBREV-P3">
 									<location> -0.0144 -0.4295 -0.0289</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERBREV-P4">
 									<location> 0.0471 0.027 -0.0233</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LPERBREV-P5">
 									<location> 0.0677 0.0219 -0.0343</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10201,8 +10201,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LPERLONG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LPERLONG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10216,31 +10216,31 @@
 							<objects>
 								<PathPoint name="LPERLONG-P1">
 									<location> 0.0005 -0.1568 -0.0362</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERLONG-P2">
 									<location> -0.0207 -0.4205 -0.0286</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERLONG-P3">
 									<location> -0.0162 -0.4319 -0.0289</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERLONG-P4">
 									<location> 0.0438 0.023 -0.0221</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LPERLONG-P5">
 									<location> 0.0681 0.0106 -0.0284</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LPERLONG-P6">
 									<location> 0.0852 0.0069 -0.0118</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LPERLONG-P7">
 									<location> 0.1203 0.0085 0.0184</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10302,8 +10302,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LPERTERT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LPERTERT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10317,15 +10317,15 @@
 							<objects>
 								<PathPoint name="LPERTERT-P1">
 									<location> 0.001 -0.2804 -0.0231</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERTERT-P2">
 									<location> 0.0229 -0.4069 -0.0159</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LPERTERT-P3">
 									<location> 0.0857 0.0228 -0.0299</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10387,8 +10387,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LEXTDIG">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LEXTDIG">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10402,27 +10402,27 @@
 							<objects>
 								<PathPoint name="LEXTDIG-P1">
 									<location> 0.0032 -0.1381 -0.0276</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTDIG-P2">
 									<location> 0.0289 -0.4007 -0.0072</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTDIG-P3">
 									<location> 0.0922 0.0388 0.0001</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTDIG-P4">
 									<location> 0.1616 0.0055 -0.013</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTDIG-P5">
 									<location> 0.0003 0.0047 -0.0153</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTDIG-P6">
 									<location> 0.0443 -0.0004 -0.025</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10484,8 +10484,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LEXTHAL">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LEXTHAL">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10499,31 +10499,31 @@
 							<objects>
 								<PathPoint name="LEXTHAL-P1">
 									<location> 0.0012 -0.1767 -0.0228</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTHAL-P2">
 									<location> 0.0326 -0.3985 0.0085</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTHAL-P3">
 									<location> 0.097 0.0389 0.0211</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTHAL-P4">
 									<location> 0.1293 0.0309 0.0257</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTHAL-P5">
 									<location> 0.1734 0.0139 0.028</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTHAL-P6">
 									<location> 0.0298 0.0041 0.0245</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 								<PathPoint name="LEXTHAL-P7">
 									<location> 0.0563 0.0034 0.0186</location>
-									<body>ltoes</body>
+									<body>toes_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10585,8 +10585,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LLIGPAT">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LLIGPAT">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10600,11 +10600,11 @@
 							<objects>
 								<PathPoint name="LLIGPAT-P1">
 									<location> 0.039 -0.0822 0</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LLIGPAT-P2">
 									<location> 0.0021 0.0015 -0.0001</location>
-									<body>lpatella</body>
+									<body>patella_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10666,8 +10666,8 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
-				<Schutte1993Muscle_Deprecated name="LTPOST2">
+				</Millard2012EquilibriumMuscle>
+				<Millard2012EquilibriumMuscle name="LTPOST2">
 					<!--Flag indicating whether the force is disabled or not. Disabled means that the force is not active in subsequent dynamics realizations.-->
 					<isDisabled>false</isDisabled>
 					<!--Minimum allowed value for control signal. Used primarily when solving for control values.-->
@@ -10681,23 +10681,23 @@
 							<objects>
 								<PathPoint name="LTPOST2-P1">
 									<location> -0.0094 -0.1348 -0.0019</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTPOST2-P2">
 									<location> 0.0063 -0.3505 -0.0146</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTPOST2-P3">
 									<location> 0.0165 -0.3904 -0.0176</location>
-									<body>ltibia</body>
+									<body>tibia_l</body>
 								</PathPoint>
 								<PathPoint name="LTPOST2-P4">
 									<location> 0.0912 0.0463 -0.0086</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 								<PathPoint name="LTPOST2-P5">
 									<location> 0.105 0.0325 -0.0093</location>
-									<body>lcalcn</body>
+									<body>calcn_l</body>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -10759,25 +10759,25 @@
 						<x> -5 0.998 0.999 1 1.1 1.2 1.3 1.4 1.5 1.6 1.601 1.602 5</x>
 						<y> 0 0 0 0 0.035 0.12 0.26 0.55 1.17 2 2 2 2</y>
 					</SimmSpline>
-				</Schutte1993Muscle_Deprecated>
+				</Millard2012EquilibriumMuscle>
 			</objects>
 			<groups>
-				<ObjectGroup name="r hip abductors">
+				<ObjectGroup name="r hip_r abductors">
 					<members> GMAX1 GMED1 GMED2 GMED3 GMIN1 GMIN2 GMIN3 PERI SAR TFL</members>
 				</ObjectGroup>
-				<ObjectGroup name="r hip flexors">
+				<ObjectGroup name="r hip_r flexors">
 					<members> ADDBREV ADDLONG GMED1 GMIN1 GRA ILIACUS PECT PSOAS RF SAR TFL</members>
 				</ObjectGroup>
-				<ObjectGroup name="r hip int rotators">
+				<ObjectGroup name="r hip_r int rotators">
 					<members> GMED1 GMIN1 ILIACUS PSOAS TFL</members>
 				</ObjectGroup>
-				<ObjectGroup name="r hip ext rotators">
+				<ObjectGroup name="r hip_r ext rotators">
 					<members> GLEM GMED3 GMIN3 PERI QUADFEM</members>
 				</ObjectGroup>
-				<ObjectGroup name="r hip extensors">
+				<ObjectGroup name="r hip_r extensors">
 					<members> ADDLONG AMAG1 AMAG2 AMAG3 BIFEMLH GMAX1 GMAX2 GMAX3 GMED3 GMIN3 HAMSTRINGS SEMIMEM SEMITEN</members>
 				</ObjectGroup>
-				<ObjectGroup name="r hip adductors">
+				<ObjectGroup name="r hip_r adductors">
 					<members> ADDBREV ADDLONG AMAG1 AMAG2 AMAG3 BIFEMLH GRA HAMSTRINGS PECT SEMIMEM SEMITEN</members>
 				</ObjectGroup>
 				<ObjectGroup name="r knee flexors">
@@ -10786,10 +10786,10 @@
 				<ObjectGroup name="r knee extensors">
 					<members> LIGPAT RF VASINT VASLAT VASMED</members>
 				</ObjectGroup>
-				<ObjectGroup name="r ankle plantar flexors">
+				<ObjectGroup name="r ankle_r plantar flexors">
 					<members> FLEXDIG FLEXHAL LATGAS MEDGAS PERBREV PERLONG SOL TIBPOST</members>
 				</ObjectGroup>
-				<ObjectGroup name="r ankle dorsiflexors">
+				<ObjectGroup name="r ankle_r dorsiflexors">
 					<members> EXTDIG EXTHAL PERTERT TIBANT TPOST2</members>
 				</ObjectGroup>
 				<ObjectGroup name="r invertors">
@@ -10798,22 +10798,22 @@
 				<ObjectGroup name="r evertors">
 					<members> EXTDIG PERBREV PERLONG PERTERT TPOST2</members>
 				</ObjectGroup>
-				<ObjectGroup name="l hip abductors">
+				<ObjectGroup name="l hip_r abductors">
 					<members> LGMAX1 LGMED1 LGMED2 LGMED3 LGMIN1 LGMIN2 LGMIN3 LPERI LTFL LSAR</members>
 				</ObjectGroup>
-				<ObjectGroup name="l hip flexors">
+				<ObjectGroup name="l hip_r flexors">
 					<members> LADDBREV LADDLONG LGMED1 LGMIN1 LGRA LILIACUS LPECT LPSOAS LRF LTFL LSAR</members>
 				</ObjectGroup>
-				<ObjectGroup name="l hip int rotators">
+				<ObjectGroup name="l hip_r int rotators">
 					<members> LGMED1 LGMIN1 LILIACUS LPSOAS LTFL</members>
 				</ObjectGroup>
-				<ObjectGroup name="l hip ext rotators">
+				<ObjectGroup name="l hip_r ext rotators">
 					<members> LGLEM LGMED3 LGMIN3 LPERI LQUADFEM</members>
 				</ObjectGroup>
-				<ObjectGroup name="l hip extensors">
+				<ObjectGroup name="l hip_r extensors">
 					<members> LADDLONG LAMAG1 LAMAG2 LAMAG3 LBIFEMLH LGMAX1 LGMAX2 LGMAX3 LGMED3 LGMIN3 LSEMIMEM LSEMITEN</members>
 				</ObjectGroup>
-				<ObjectGroup name="l hip adductors">
+				<ObjectGroup name="l hip_r adductors">
 					<members> LADDBREV LADDLONG LAMAG1 LAMAG2 LAMAG3 LBIFEMLH LGRA LPECT LSEMIMEM LSEMITEN</members>
 				</ObjectGroup>
 				<ObjectGroup name="l knee flexors">
@@ -10822,10 +10822,10 @@
 				<ObjectGroup name="l knee extensors">
 					<members> LLIGPAT LRF LVASINT LVASLAT lVASMED</members>
 				</ObjectGroup>
-				<ObjectGroup name="l ankle plantar flexors">
+				<ObjectGroup name="l ankle_r plantar flexors">
 					<members> LFLEXDIG LFLEXHAL LLATGAS LMEDGAS LPERBREV LPERLONG LSOL LTIBPOST</members>
 				</ObjectGroup>
-				<ObjectGroup name="l ankle dorsiflexors">
+				<ObjectGroup name="l ankle_r dorsiflexors">
 					<members> LEXTDIG LEXTHAL LPERTERT LTIBANT LTPOST2</members>
 				</ObjectGroup>
 				<ObjectGroup name="l invertors">

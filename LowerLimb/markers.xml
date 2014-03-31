@@ -2,7 +2,7 @@
 <OpenSimDocument Version="30000">
 	<MarkerSet>
 		<objects>
-			<Marker name="mPelvis">
+			<Marker name="NUI_SKELETON_POSITION_HIP_CENTER">
 				<!--Body segment in the model on which the marker resides.-->
 				<body>pelvis</body>
 				<!--Location of a marker on the body segment.-->
@@ -10,65 +10,65 @@
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mHipR">
+			<Marker name="NUI_SKELETON_POSITION_HIP_RIGHT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>femur</body>
+				<body>femur_r</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mHipL">
+			<Marker name="NUI_SKELETON_POSITION_HIP_LEFT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>lfemur</body>
+				<body>femur_l</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mKneeR">
+			<Marker name="NUI_SKELETON_POSITION_KNEE_RIGHT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>tibia</body>
+				<body>tibia_r</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mKneeL">
+			<Marker name="NUI_SKELETON_POSITION_KNEE_LEFT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>ltibia</body>
+				<body>tibia_l</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mAnkleR">
+			<Marker name="NUI_SKELETON_POSITION_ANKLE_RIGHT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>talus</body>
+				<body>talus_r</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mAnkleL">
+			<Marker name="NUI_SKELETON_POSITION_ANKLE_LEFT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>ltalus</body>
+				<body>talus_l</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mToesR">
+			<Marker name="NUI_SKELETON_POSITION_FOOT_RIGHT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>toes</body>
+				<body>toes_r</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
 				<fixed>false</fixed>
 			</Marker>
-			<Marker name="mToesL">
+			<Marker name="NUI_SKELETON_POSITION_FOOT_LEFT">
 				<!--Body segment in the model on which the marker resides.-->
-				<body>ltoes</body>
+				<body>toes_l</body>
 				<!--Location of a marker on the body segment.-->
 				<location> 0 0 0</location>
 				<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
