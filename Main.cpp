@@ -1,13 +1,17 @@
 #include <OpenSim\OpenSim.h>
 //#include <Simbody.h>
 #include <OpenSim\Tools\InverseDynamicsTool.h>
+#include <OpenSim\Simulation\SimbodyEngine\RollingOnSurfaceConstraint.h>
 #include "ini\INIReader.h"
 #include <string>
+#include <iostream>
 
 using namespace OpenSim;
 using namespace std;
 
 void addContactParameters(OpenSim::Model &model);
+void addRollConstrains(OpenSim::Model &model);
+
 
 /**
 * Performs scale, inverse kinematics and inverse dynamics
@@ -24,6 +28,7 @@ int main(){
 		Model model = *scale.createModel();
 
 		addContactParameters(model);
+		//addRollConstrains(model);
 
 		/*Model model(MODEL_PATH);
 		MarkerSet markerSet(MARKERS_PATH);
@@ -59,6 +64,25 @@ int main(){
 	return 0;
 }
 
+void addRollConstrains(OpenSim::Model &model){
+
+	RollingOnSurfaceConstraint *rollRight = new RollingOnSurfaceConstraint();
+	rollRight->setName("right_foot_contact");
+	rollRight->setRollingBodyByName("calcn_r");
+	rollRight->setSurfaceBodyByName("ground");
+	rollRight->connectToModel(model);
+	model.addConstraint(rollRight);
+
+	RollingOnSurfaceConstraint *rollLeft = new RollingOnSurfaceConstraint();
+	rollLeft->setName("left_foot_contact");
+	rollLeft->setRollingBodyByName("calcn_l");
+	rollRight->setSurfaceBodyByName("ground");
+	rollLeft->connectToModel(model);
+	model.addConstraint(rollLeft);
+	
+}
+
+
 void addContactParameters(OpenSim::Model &model){
 	INIReader ini("settings.ini");
 
@@ -82,29 +106,36 @@ void addContactParameters(OpenSim::Model &model){
 	//contact platform plate
 	ContactHalfSpace *grf = new ContactHalfSpace(SimTK::Vec3(0), 
 		SimTK::Vec3(0, 0, -SimTK::Pi/2), *plate, "grf");
+	grf->setDisplayPreference(4);
 	model.addContactGeometry(grf);
 	
 	//contact right leg
 	ContactSphere *heel_r = new ContactSphere(0.03, 
 		SimTK::Vec3(0.01, 0.01, -0.005), calcn_r, "heel_r");
 	model.addContactGeometry(heel_r);
-	ContactSphere *big_toe_r = new ContactSphere(0.02, 
+	/*ContactSphere *big_toe_r = new ContactSphere(0.02, 
 		SimTK::Vec3(-0.005, 0.005, -0.03), toes_r, "big_toe_r");
 	model.addContactGeometry(big_toe_r);
+	ContactSphere *big_toe2_r = new ContactSphere(0.015, 
+		SimTK::Vec3(0.05, 0.005, 0.03), toes_r, "big_toe2_r");
+	model.addContactGeometry(big_toe2_r);
 	ContactSphere *small_toe_r = new ContactSphere(0.015, 
 		SimTK::Vec3(-0.04, 0.005, 0.04), toes_r, "small_toe_r");
-	model.addContactGeometry(small_toe_r);
+	model.addContactGeometry(small_toe_r);*/
 
 	//contact left leg
 	ContactSphere *heel_l = new ContactSphere(0.03, 
 		SimTK::Vec3(0.01, 0.01, -0.005), calcn_l, "heel_l");
 	model.addContactGeometry(heel_l);
-	ContactSphere *big_toe_l = new ContactSphere(0.02, 
+	/*ContactSphere *big_toe_l = new ContactSphere(0.02, 
 		SimTK::Vec3(-0.005, 0.005, 0.03), toes_l, "big_toe_l");
 	model.addContactGeometry(big_toe_l);
+	ContactSphere *big_toe2_l = new ContactSphere(0.015, 
+		SimTK::Vec3(0.05, 0.005, -0.03), toes_l, "big_toe2_l");
+	model.addContactGeometry(big_toe2_l);
 	ContactSphere *small_toe_l = new ContactSphere(0.015, 
 		SimTK::Vec3(-0.04, 0.005, -0.04), toes_l, "small_toe_l");
-	model.addContactGeometry(small_toe_l);
+	model.addContactGeometry(small_toe_l);*/
 
 	double stiffness, dissipation, staticFriction, dynamicFriction, viscousFriction;
 	stiffness = ini.GetReal("contact", "CONTACT_STIFFNESS", 1e8);
@@ -118,8 +149,9 @@ void addContactParameters(OpenSim::Model &model){
 		new HuntCrossleyForce::ContactParameters(stiffness, dissipation, staticFriction, dynamicFriction, viscousFriction);
 	rightFootParam->append_geometry("grf");
 	rightFootParam->append_geometry("heel_r");
-	rightFootParam->append_geometry("big_toe_r");
-	rightFootParam->append_geometry("small_toe_r");
+	/*rightFootParam->append_geometry("big_toe_r");
+	rightFootParam->append_geometry("big_toe2_r");
+	rightFootParam->append_geometry("small_toe_r");*/
 	HuntCrossleyForce *foot_rForce = new HuntCrossleyForce(rightFootParam);
 	foot_rForce->setName("foot_r");
 	model.addForce(foot_rForce);
@@ -129,8 +161,9 @@ void addContactParameters(OpenSim::Model &model){
 		new HuntCrossleyForce::ContactParameters(stiffness, dissipation, staticFriction, dynamicFriction, viscousFriction);
 	leftFootParam->append_geometry("grf");
 	leftFootParam->append_geometry("heel_l");
-	leftFootParam->append_geometry("big_toe_l");
-	leftFootParam->append_geometry("small_toe_l");
+	/*leftFootParam->append_geometry("big_toe_l");
+	leftFootParam->append_geometry("big_toe2_l");
+	leftFootParam->append_geometry("small_toe_l");*/
 	HuntCrossleyForce *foot_lForce = new HuntCrossleyForce(leftFootParam);
 	foot_lForce->setName("foot_l");
 	model.addForce(foot_lForce);
